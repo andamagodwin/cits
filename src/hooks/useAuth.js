@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function useAuth() {
     const [auth, setAuth] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     // Initialize auth state from localStorage
@@ -17,6 +18,8 @@ export default function useAuth() {
                 console.error('Failed to parse auth from localStorage:', error);
             }
         }
+
+        setIsLoading(false);
     }, []);
 
     // Persist auth to localStorage when it changes
@@ -96,6 +99,7 @@ export default function useAuth() {
 
     // In hooks/useAuth.js
     const refreshAuth = async () => {
+        setIsLoading(true);
         try {
           const response = await axios.post('/api/auth/refresh-token', {}, {
             withCredentials: true
@@ -114,7 +118,7 @@ export default function useAuth() {
       };
   
   // Add to your return statement
-  return { auth, setAuth, logout, refreshAuth };
+  return { auth, setAuth, logout, refreshAuth, isLoading };
 
     // return { auth, setAuth, logout };
 }

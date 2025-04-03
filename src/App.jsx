@@ -1,6 +1,36 @@
 import { Link,Outlet } from "react-router-dom";
+import { useAuthContext } from "./context/authContext";
+import { useNavigate } from "react-router-dom";
+
+// import useAuth from "./hooks/useAuth";
 
 const App = () => {
+  const navigate = useNavigate();
+  const {auth,isLoading} = useAuthContext();
+
+  if(isLoading){
+    return <div>Loading...</div>
+  }
+
+  if(!auth){
+    navigate("/login");
+  }
+
+
+
+
+  console.log("auth",auth);
+
+  
+
+
+ 
+
+
+
+
+
+
   return (
     <div className="flex w-full h-screen bg-green-500">
       <div className="w-1/4 bg-blue-500">

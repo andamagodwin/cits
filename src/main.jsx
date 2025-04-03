@@ -6,6 +6,7 @@ import LecturesPage from './pages/dashboard/lecturesPage.jsx';
 import SchedulePage from './pages/dashboard/schedulePage.jsx';
 import LoginPage from './pages/auth/loginPage.jsx';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import {AuthProvider} from './context/authContext.jsx';
 
 
 
@@ -20,7 +21,11 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    ),
     children: [
       {
         path: "/lectures",
@@ -34,7 +39,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <AuthProvider>
+        
+        <LoginPage />
+      </AuthProvider>
+    ),
   },
 ]);
 
@@ -44,8 +54,10 @@ const CLIENT_ID = "275545075771-fddi7eh53isj09v22g39403e89sf9oa5.apps.googleuser
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={CLIENT_ID}>
-
-      <RouterProvider router={router} />
+      
+        {/* <App /> */}
+        <RouterProvider router={router} />
+      
 
     </GoogleOAuthProvider>
     {/* <App /> */}

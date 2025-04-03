@@ -1,11 +1,14 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
+import { useAuthContext } from "../../context/authContext";
 
 export default function LoginPage() {
     const navigate = useNavigate();
-    const { setAuth } = useAuth();
+    const { setAuth } = useAuthContext(); // Assuming you have a custom hook for auth context
+
+
 
     const handleGoogleSuccess = async (credentialResponse) => {
         try {
