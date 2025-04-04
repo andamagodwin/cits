@@ -1,3 +1,5 @@
+
+
 export default function LecturesPage() {
     return (
         <div>
