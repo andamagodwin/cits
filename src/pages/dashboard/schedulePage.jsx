@@ -11,7 +11,7 @@ export default function SchedulePage() {
     useEffect(() => {
         const fetchMeetings = async () => {
           try {
-            const response = await fetch(`http://localhost:5000/api/callendar/get-meetings/${auth.user.id}`, {
+            const response = await fetch(`https://api.lingomeet.space/api/callendar/get-meetings/${auth.user.id}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -32,13 +32,13 @@ export default function SchedulePage() {
 
     const requestGoogleCalendarAccess = () => {
         // Redirect user to your BACKEND endpoint (not directly to Google)
-        window.location.href = 'http://localhost:5000/api/auth/callendar';
+        window.location.href = 'https://api.lingomeet.space/api/auth/callendar';
       };
 
     const createMeeting = async () => {
         // Step 3: Create a meeting (after calendar access granted)
         try {
-          const response = await fetch('http://localhost:5000/api/callendar/create', {
+          const response = await fetch('https://api.lingomeet.space/api/callendar/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

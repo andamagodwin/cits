@@ -12,7 +12,7 @@ export default function LoginPage() {
 
     const handleGoogleSuccess = async (credentialResponse) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/google', {
+            const response = await axios.post('https://api.lingomeet.space/api/auth/google', {
                 credential: credentialResponse.credential
             }, {
                 withCredentials: true
