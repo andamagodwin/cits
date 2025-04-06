@@ -36,6 +36,10 @@ const router = createBrowserRouter([
         path: "/schedule",
         element: <SchedulePage />,
       },
+      {
+        path: "*",
+        element: <h1>404</h1>,
+      }
     ]
   },
   {
