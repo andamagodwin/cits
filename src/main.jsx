@@ -5,6 +5,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import LecturesPage from './pages/dashboard/lecturesPage.jsx';
 import SchedulePage from './pages/dashboard/schedulePage.jsx';
 import LoginPage from './pages/auth/loginPage.jsx';
+// import Onbording from './pages/onboarding/onboard.js';
 import AuthError from './pages/error/authError.jsx';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import {AuthProvider} from './context/authContext.jsx';
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
         <AuthError />
       </AuthProvider>
     ),
-  }
+  },
 ]);
 
 const CLIENT_ID = "275545075771-fddi7eh53isj09v22g39403e89sf9oa5.apps.googleusercontent.com"
