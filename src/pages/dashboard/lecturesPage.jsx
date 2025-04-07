@@ -3,7 +3,7 @@ import { useAuthContext } from "../../context/authContext"
 
 export default function LecturesPage() {
     const [meetingLink, setMeetingLink] = useState('');
-    const { auth } = useAuthContext()
+    const { auth,logout } = useAuthContext()
 
     const createmeetingspace = async () => {
         
@@ -26,6 +26,9 @@ export default function LecturesPage() {
     }
     return (
         <div>
+
+            <button onClick={logout}>Logout</button>
+
             <h1>Lectures</h1>
             <button onClick={createmeetingspace} >Creat a meeting using the rest Api</button>
             {meetingLink && (
